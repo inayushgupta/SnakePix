@@ -1,0 +1,4 @@
+WIDTH = 72
+HEIGHT = 36
+
+
