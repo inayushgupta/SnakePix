@@ -5,7 +5,13 @@ from arena import *
 def menu(screen):
     
     menu_options = ['EASY', 'MEDIUM', 'HARD']
-    settings = {key:value for key, value in enumerate(menu_options)}
+    
+    settings = {
+        'EASY': 0.20,
+        'MEDIUM': 0.10,
+        'HARD': 0.5
+    }
+
     heading = "SNAKE PIX!"
     selection = 0
 
@@ -33,6 +39,6 @@ def menu(screen):
         elif key == ord('w'):
             selection = selection - 1 if selection > 0 else selection
         elif key == ord('\n'):
-            return settings[selection]
+            return settings[menu_options[selection]]
 
 

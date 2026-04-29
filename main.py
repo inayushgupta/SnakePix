@@ -1,7 +1,10 @@
 import curses
 from time import sleep
 from menu import * 
-from arena import *
+from arena import arena
+#from game import *
+from pause import *
+from game import *
 
 def main(screen):
     while True:
@@ -10,12 +13,13 @@ def main(screen):
         height, width = screen.getmaxyx()
 
         if height < 36 or width < 72:
-            screen.clear()
-            screen.addstr(0, 0,  "Paused! Pease Fix the screen")
-        else:
+            pause(screen, height, width)
+        else:  
             arena(screen)
             screen.refresh()
-            settings = menu(screen)
+            setting = menu(screen)
+            game(screen, setting)
+
         screen.refresh()
         key = screen.getch()
         if key == ord('q'):
