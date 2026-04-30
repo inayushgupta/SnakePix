@@ -32,7 +32,7 @@ def change_direction(key, direction):
 def is_collision(head, snake):
 
     r, c = head
-    if r == 0 or r == HEIGHT - 1 or c == 1 or c == WIDTH - 2:
+    if r == 0 or r == HEIGHT or c == 1 or c == WIDTH - 1:
         return True
 
     if head in snake:

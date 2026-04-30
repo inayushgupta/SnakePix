@@ -9,7 +9,7 @@ def menu(screen):
     settings = {
         'EASY': 0.20,
         'MEDIUM': 0.10,
-        'HARD': 0.5
+        'HARD': 0.05
     }
 
     heading = "SNAKE PIX!"

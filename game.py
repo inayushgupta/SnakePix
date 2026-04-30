@@ -19,11 +19,8 @@ def game(screen, setting):
         food = gen_food(snake)
 
         while True:
-            screen.clear()
-
-            arena(screen)
-            draw_snake(screen, snake)
-            draw_food(screen, food)
+            key = screen.getch()
+            direction = change_direction(key, direction)
 
             new_head = (snake[0][0] + direction[0], 
                         snake[0][1] + direction[1])
@@ -32,6 +29,12 @@ def game(screen, setting):
                 screen.clear()
                 break
 
+            screen.clear()
+
+            arena(screen)
+            draw_snake(screen, snake)
+            draw_food(screen, food)
+
             grow = new_head == food
             move_snake(snake, direction, grow)
 
@@ -39,9 +42,6 @@ def game(screen, setting):
                 food = gen_food(snake)
 
             screen.refresh()
-
-            key = screen.getch()
-            direction = change_direction(key, direction)
 
             sleep(setting)
     finally:
