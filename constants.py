@@ -3,6 +3,6 @@ HEIGHT = 36
 
 UP = ord('w')
 DOWN = ord('s')
-LEFT = ord('d')
-RIGHT = ord('a')
+LEFT = ord('a')
+RIGHT = ord('d')
 
