@@ -50,32 +50,6 @@ SnakePix is a terminal-based clone of the classic Snake game built with Python a
 - `pause.py` — pause screen when terminal is too small
 - `constants.py` — fixed board dimensions and input key constants
 
-## Known issues and suggested fixes
-
-1. `utils.is_collision()` has an incorrect right-wall boundary check.
-   - The board draws walls at `c == 70` and `c == 71`, but collision only checks `c == WIDTH - 1`.
-   - Fix: treat `c == WIDTH - 2` and `c == WIDTH - 1` as collisions.
-
-2. Moving into the tail should be allowed when the snake is not growing.
-   - Current collision detection checks the entire snake body before the tail is removed.
-   - Fix: allow the new head to occupy the current tail cell on non-growth moves.
-
-3. `constants.py` defines `LEFT` and `RIGHT` opposite of the expected WASD mapping.
-   - `LEFT = ord('d')` and `RIGHT = ord('a')` are reversed.
-   - Fix: swap them so `A` is left and `D` is right.
-
-4. `menu.py` only uses `w`/`s` for selection, not arrow key input.
-   - Adding arrow key support would improve usability.
-
-5. `draw_food()` does not catch `curses.error`.
-   - If food spawns outside the visible region or if the terminal is too small, the game may crash.
-   - Fix: wrap drawing in a `try/except curses.error` block.
-
-6. The fixed-board logic is built around a `36x72` viewport.
-   - If the user resizes the terminal, the game currently may not behave consistently.
-   - Consider enforcing the fixed size more strictly or using the actual terminal dimensions uniformly.
-
 ## Notes
 
 - The game intentionally uses a fixed board size, so the terminal must be at least `72` columns by `36` rows.
-- If the terminal is too small, the app shows a resize warning and returns to the main menu.

@@ -5,8 +5,6 @@ from arena import *
 def pause(screen, r, c):
     
     screen.clear()
-    arena(screen)
-
 
     message = "--FIX THE TERMINAL SIZE--"
 
@@ -16,4 +14,7 @@ def pause(screen, r, c):
     if c < len(message):
         message = "P"
 
-    screen.addstr(r // 2, c // 2 - len(message)//2, message)
+    try:
+        screen.addstr(r // 2, max(0, c // 2 - len(message)//2), message)
+    except curses.error:
+        pass

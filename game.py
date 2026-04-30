@@ -4,7 +4,7 @@ import constants
 from utils import *
 from collections import deque
 from time import sleep
-
+from pause import *
 
 
 def game(screen, setting):
@@ -19,6 +19,14 @@ def game(screen, setting):
         food = gen_food(snake)
 
         while True:
+            r, c = screen.getmaxyx()
+
+            if r < 36 or c < 72:
+                pause(screen, r, c)
+                screen.refresh()
+                sleep(0.1)
+                continue
+
             key = screen.getch()
             direction = change_direction(key, direction)
 

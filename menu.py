@@ -34,9 +34,9 @@ def menu(screen):
             return
         key = screen.getch()
 
-        if key == ord('s'):
+        if key in (DOWN, curses.KEY_DOWN):
             selection = selection + 1 if selection < 2 else selection
-        elif key == ord('w'):
+        elif key in (UP, curses.KEY_UP):
             selection = selection - 1 if selection > 0 else selection
         elif key == ord('\n'):
             return settings[menu_options[selection]]
