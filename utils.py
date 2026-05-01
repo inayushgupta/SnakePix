@@ -43,7 +43,7 @@ def is_collision(head, snake):
 def draw_snake(screen, snake):
     for r, c in snake:
         try:
-            screen.addstr(r, c, "@")
+            screen.addstr(r, c, "#")
         except curses.error:
             pass
 
