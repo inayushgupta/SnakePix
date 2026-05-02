@@ -17,6 +17,7 @@ def over(screen, score):
                 raise curses.error
 
             screen.addstr(HEIGHT//3 - 6, (WIDTH // 2) - len(heading)//2  , heading)        
+            screen.addstr(HEIGHT//3 - 3, (WIDTH // 2) - len(score)//2  , score)        
             screen.addstr(HEIGHT//3 + 6 + selection * 2, (WIDTH // 2) - 10, ">>")
             for i, option in enumerate(menu_options):
                 screen.addstr(HEIGHT//3 + 6 + i * 2, (WIDTH // 2) - len(option)//2, option)
