@@ -14,7 +14,7 @@ def move_snake(snake, direction, grow):
 
 def gen_food(snake):
     while True:
-        pos = (random.randint(1, HEIGHT-2), random.randint(2, WIDTH-3))
+        pos = (random.randint(3, HEIGHT-2), random.randint(2, WIDTH-2))
         if pos not in snake:
             return pos
 
@@ -32,7 +32,7 @@ def change_direction(key, direction):
 def is_collision(head, snake):
 
     r, c = head
-    if r == 0 or r == HEIGHT or c == 1 or c == WIDTH - 1:
+    if r == 2 or r == HEIGHT-1 or c == 0 or c == WIDTH - 1:
         return True
 
     if head in snake:

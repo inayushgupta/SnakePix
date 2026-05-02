@@ -22,7 +22,9 @@ def menu(screen):
         try:
 
             if height < 36 or width < 72:
-                raise curses.error
+                pause(screen, height, width)
+                screen.refresh()
+                continue 
 
             screen.addstr(HEIGHT//3 - 6, (WIDTH // 2) - len(heading)//2  , heading)        
             screen.addstr(HEIGHT//3 + 6 + selection * 2, (WIDTH // 2) - 10, ">>")

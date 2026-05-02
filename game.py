@@ -40,7 +40,7 @@ def game(screen, setting):
 
             screen.clear()
 
-            arena(screen)
+            arena(screen, score)
             draw_snake(screen, snake)
             draw_food(screen, food)
 
