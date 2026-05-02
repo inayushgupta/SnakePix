@@ -10,7 +10,8 @@ from pause import *
 def game(screen, setting):
     if setting is None:
         return
-
+    
+    score = 0
     screen.nodelay(True)
     screen.keypad(True)
     try:
@@ -47,6 +48,7 @@ def game(screen, setting):
             move_snake(snake, direction, grow)
 
             if grow:
+                score += 1
                 food = gen_food(snake)
 
             screen.refresh()
@@ -55,6 +57,7 @@ def game(screen, setting):
     finally:
         screen.nodelay(False)
         screen.keypad(False)
+        return score
 
     
 

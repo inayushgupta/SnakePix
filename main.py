@@ -5,6 +5,8 @@ from arena import arena
 #from game import *
 from pause import *
 from game import *
+from over import *
+from sys import exit
 
 def main(screen):
     while True:
@@ -18,7 +20,13 @@ def main(screen):
             arena(screen)
             screen.refresh()
             setting = menu(screen)
-            game(screen, setting)
+            score = game(screen, setting)
+            selection = over(screen, score)
+
+            if selection == "MAIN MENU":
+                main(screen)
+            else:
+                exit(0)
 
         screen.refresh()
         key = screen.getch()
