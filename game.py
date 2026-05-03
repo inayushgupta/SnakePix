@@ -13,7 +13,6 @@ def game(screen, setting):
     
     score = 0
     screen.nodelay(True)
-    screen.keypad(True)
     try:
         snake = deque([(12, 12), (12, 11), (12, 10)])
         direction = (0, 1)
@@ -56,7 +55,6 @@ def game(screen, setting):
             sleep(setting)
     finally:
         screen.nodelay(False)
-        screen.keypad(False)
         return score
 
     

@@ -3,7 +3,6 @@ from constants import *
 from arena import *
 
 def menu(screen):
-    
     menu_options = ['EASY', 'MEDIUM', 'HARD']
     
     settings = {
