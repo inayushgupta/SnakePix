@@ -9,31 +9,35 @@ from over import *
 from sys import exit
 
 def main(screen):
-    while True:
-        screen.clear()
-        
-        height, width = screen.getmaxyx()
+    screen.keypad(True)
+    try:
+        while True:
+            screen.clear()
+            
+            height, width = screen.getmaxyx()
 
-        if height < 36 or width < 72:
-            pause(screen, height, width)
-        else:  
-            arena(screen)
+            if height < 36 or width < 72:
+                pause(screen, height, width)
+            else:  
+                arena(screen)
+                screen.refresh()
+                setting = menu(screen)
+                score = game(screen, setting)
+                selection = over(screen, score)
+
+                if selection == "MAIN MENU":
+                    main(screen)
+                else:
+                    exit(0)
+
             screen.refresh()
-            setting = menu(screen)
-            score = game(screen, setting)
-            selection = over(screen, score)
+            key = screen.getch()
+            if key == ord('q'):
+                break
 
-            if selection == "MAIN MENU":
-                main(screen)
-            else:
-                exit(0)
-
-        screen.refresh()
-        key = screen.getch()
-        if key == ord('q'):
-            break
-
-        sleep(0.1)
+            sleep(0.1)
+    finally:
+        screen.keypad(False)
 
 if __name__ == "__main__":
     curses.wrapper(main)
