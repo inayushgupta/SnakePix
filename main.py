@@ -2,7 +2,6 @@ import curses
 from time import sleep
 from menu import * 
 from arena import arena
-#from game import *
 from pause import *
 from game import *
 from over import *
@@ -16,7 +15,7 @@ def main(screen):
             
             height, width = screen.getmaxyx()
 
-            if height < 36 or width < 72:
+            if height < HEIGHT or width < WIDTH:
                 pause(screen, height, width)
             else:  
                 arena(screen)
@@ -26,7 +25,7 @@ def main(screen):
                 selection = over(screen, score)
 
                 if selection == "MAIN MENU":
-                    main(screen)
+                    continue
                 else:
                     exit(0)
 

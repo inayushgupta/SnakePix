@@ -20,7 +20,7 @@ def menu(screen):
         arena(screen)
         try:
 
-            if height < 36 or width < 72:
+            if height < HEIGHT or width < WIDTH:
                 pause(screen, height, width)
                 screen.refresh()
                 continue 
@@ -35,9 +35,9 @@ def menu(screen):
             return
         key = screen.getch()
 
-        if key in (DOWN, curses.KEY_DOWN):
+        if key in (S, curses.KEY_DOWN):
             selection = selection + 1 if selection < 2 else selection
-        elif key in (UP, curses.KEY_UP):
+        elif key in (W, curses.KEY_UP):
             selection = selection - 1 if selection > 0 else selection
         elif key == ord('\n'):
             return settings[menu_options[selection]]

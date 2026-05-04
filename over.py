@@ -13,7 +13,7 @@ def over(screen, score):
         arena(screen, score)
         try:
 
-            if height < 36 or width < 72:
+            if height < HEIGHT or width < WIDTH:
                 raise curses.error
 
             score_string = f"FINAL SCORE : {score}"
@@ -28,9 +28,9 @@ def over(screen, score):
             return
         key = screen.getch()
 
-        if key in (DOWN, curses.KEY_DOWN):
+        if key in (S, curses.KEY_DOWN):
             selection = selection + 1 if selection < 1 else selection
-        elif key in (UP, curses.KEY_UP):
+        elif key in (W, curses.KEY_UP):
             selection = selection - 1 if selection > 0 else selection
         elif key == ord('\n'):
             return menu_options[selection]
