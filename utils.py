@@ -1,13 +1,5 @@
 from constants import *
 import random
-import curses
-from collections import deque
-
-def move_snake(snake, direction, grow):
-    
-    r, c = snake[0]
-    new_head = (r + direction[0], c + direction[1])
-    snake.appendleft(new_head)
 
 def gen_food(snake):
     while True:

@@ -9,6 +9,8 @@ from sys import exit
 
 def main(screen):
     screen.keypad(True)
+    curses.noecho()
+    curses.curs_set(0)
     try:
         while True:
             screen.clear()
@@ -33,8 +35,6 @@ def main(screen):
             key = screen.getch()
             if key == ord('q'):
                 break
-
-            sleep(0.1)
     finally:
         screen.keypad(False)
 
